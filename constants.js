@@ -1,0 +1,2 @@
+export const DB_NAME="db_exkop_app";
+export const JWT_SECRET="eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MT"
