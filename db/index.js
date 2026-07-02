@@ -1,17 +1,28 @@
-import mongoose from "mongoose";
-import { DB_NAME } from "./../constants.js";
+import dotenv from "dotenv"
+import mongoose from "mongoose"
+import { DB_NAME } from "./../constants.js"
+
+dotenv.config({ path: "./.env" })
+
+const getMongoUri = () => {
+  if (process.env.MONGODB_URI) {
+    return process.env.MONGODB_URI
+  }
+
+  return `mongodb://127.0.0.1:27017/${DB_NAME}`
+}
 
 const dbConnection = async () => {
   try {
-    const connectionInstance = await mongoose.connect(
-      // `${process.env.MONGODB_URI}/${DB_NAME}`
-      `mongodb://localhost:27017`,
-    );
-    // , connectionInstance.connection.host
-    console.log("db connected==host");
-  } catch (error) {
-    console.log("mongodb connection failed!!", error);
-  }
-};
+    const connectionInstance = await mongoose.connect(getMongoUri(), {
+      serverSelectionTimeoutMS: 10000,
+    })
 
-export default dbConnection;
+    console.log(`db connected ==> ${connectionInstance.connection.host}`)
+  } catch (error) {
+    console.error("mongodb connection failed!!", error.message)
+    throw error
+  }
+}
+
+export default dbConnection
