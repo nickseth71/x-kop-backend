@@ -14,7 +14,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails:
+ * /api/v1/officer/officerDetails:
  *   get:
  *     summary: Get All Officer Details
  *     description: Retrieve details of all officers
@@ -40,7 +40,7 @@ router.get("/officerDetails", verifyJWT, getAllOfficerDetails);
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails/{id}:
+ * /api/v1/officer/officerDetails/{id}:
  *   get:
  *     summary: Get Officer Details by ID
  *     description: Retrieve details of a specific officer
@@ -67,7 +67,7 @@ router.get("/officerDetails/:id", verifyJWT, getOfficerDetailsById);
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails/byOfficer/{officerId}:
+ * /api/v1/officer/officerDetails/byOfficer/{officerId}:
  *   get:
  *     summary: Get Officer Details by Officer ID
  *     description: Retrieve officer profile details by officer ID
@@ -98,7 +98,7 @@ router.get(
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails/{id}:
+ * /api/v1/officer/officerDetails/{id}:
  *   put:
  *     summary: Update Officer Details
  *     description: Update information for a specific officer
@@ -140,7 +140,7 @@ router.put("/officerDetails/:id", verifyJWT, updateOfficerDetails);
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails/{id}:
+ * /api/v1/officer/officerDetails/{id}:
  *   delete:
  *     summary: Delete Officer Details
  *     description: Delete officer profile details
@@ -167,7 +167,7 @@ router.delete("/officerDetails/:id", verifyJWT, deleteOfficerDetails);
 
 /**
  * @swagger
- * /api/v1/officerDetails/officerDetails/type:
+ * /api/v1/officer/officerDetails/type:
  *   put:
  *     summary: Update Officer Type
  *     description: Update the officer type or role classification

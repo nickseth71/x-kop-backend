@@ -9,7 +9,7 @@ const { singleFileUpload, multipleFileUpload } = configureUploadMiddleware();
 
 /**
  * @swagger
- * /api/v1/chats:
+ * /api/v1/chats/chats:
  *   post:
  *     summary: Create Chat
  *     description: Create a new chat conversation

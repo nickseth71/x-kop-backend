@@ -6,7 +6,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/v1/consultations/get-consultation-by-date:
+ * /api/v1/consultation/get-consultation-by-date:
  *   post:
  *     summary: Get Consultation History by Date
  *     description: Retrieve consultation records filtered by date
@@ -39,7 +39,7 @@ router.route('/get-consultation-by-date').post(verifyJWT, getConsultaionHistoryB
 
 /**
  * @swagger
- * /api/v1/consultations/consultList:
+ * /api/v1/consultation/consultList:
  *   get:
  *     summary: Get Consultation List with Pagination
  *     description: Retrieve paginated list of consultations

@@ -6,7 +6,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/v1/consultationPaymentDetails/callback:
+ * /api/v1/payment/callback:
  *   post:
  *     summary: Payment Callback Handler
  *     description: Handle payment callback from PhonePe payment gateway
@@ -36,7 +36,7 @@ router.route("/callback").all(phonePePayment);
 
 /**
  * @swagger
- * /api/v1/consultationPaymentDetails/store-user-info:
+ * /api/v1/payment/store-user-info:
  *   post:
  *     summary: Store User Payment Information
  *     description: Store user payment information for consultation
@@ -68,7 +68,7 @@ router.route('/store-user-info').post(storeUserInfo);
 
 /**
  * @swagger
- * /api/v1/consultationPaymentDetails/download/{transaction_id}:
+ * /api/v1/payment/download/{transaction_id}:
  *   get:
  *     summary: Download Transaction Receipt
  *     description: Download transaction receipt for a specific transaction
@@ -95,7 +95,7 @@ router.route('/download/:transaction_id').get(verifyJWT, transactionDownload);
 
 /**
  * @swagger
- * /api/v1/consultationPaymentDetails/getbankPayment:
+ * /api/v1/payment/getbankPayment:
  *   get:
  *     summary: Get Payment Details
  *     description: Retrieve payment details for the authenticated user

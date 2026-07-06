@@ -6,7 +6,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/v1/bankDetails/createUpdateBankDetails:
+ * /api/v1/bank/createUpdateBankDetails:
  *   post:
  *     summary: Create or Update Bank Details
  *     description: Create new bank details or update existing bank account information
@@ -42,7 +42,7 @@ router.post('/createUpdateBankDetails', verifyJWT, createOrUpdateBankDetails);
 
 /**
  * @swagger
- * /api/v1/bankDetails/deleteBankDetails:
+ * /api/v1/bank/deleteBankDetails:
  *   delete:
  *     summary: Delete Bank Details
  *     description: Delete bank account details
@@ -63,7 +63,7 @@ router.delete('/deleteBankDetails', verifyJWT, deleteBankDetails);
 
 /**
  * @swagger
- * /api/v1/bankDetails/getBankDetails:
+ * /api/v1/bank/getBankDetails:
  *   get:
  *     summary: Get Bank Details
  *     description: Retrieve bank account details for the authenticated user

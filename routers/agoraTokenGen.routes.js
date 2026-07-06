@@ -9,7 +9,7 @@ const router = Router();
 
 /**
  * @swagger
- * /api/v1/agoraToken/agora_token:
+ * /api/v1/token/agora_token:
  *   post:
  *     summary: Generate Agora Token
  *     description: Generate a token for Agora RTC communication (audio/video calls)
