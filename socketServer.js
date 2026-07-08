@@ -54,6 +54,7 @@ export const initializeSocket = (httpServer) => {
     socket.join(socket.user);
 
     socket.on("onLive", (data) => {
+      console.log("onLive received for", socket.user, data)
       isOnlineUser(socket.user, data);
     }); 
 
