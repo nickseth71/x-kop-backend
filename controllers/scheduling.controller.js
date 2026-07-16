@@ -331,7 +331,7 @@ export const findRandomOfficerAndCreate = async (
 
 export const createSchedule = asyncHandler(async (req, res) => {
   try {
-    const { startTime, endTime, consultationTypeName } = req.body;
+    const { startTime, endTime, consultationTypeName, officerId } = req.body;
     // const data = await findRandomOfficerAndCreate(
     //   startTime,
     //   endTime,
@@ -344,7 +344,7 @@ export const createSchedule = asyncHandler(async (req, res) => {
 
     /////////////////////// // Replace with your static officer ID
 
-    const staticOfficerId = "66de90b1b80aba7608d573f6";
+    //const staticOfficerId = "66de90b1b80aba7608d573f6";
 
     const check_schedule = await SchedulingModel.findOne({
       // officer: new ObjectId(data.data.id),
@@ -374,11 +374,11 @@ export const createSchedule = asyncHandler(async (req, res) => {
 
     const newSchedule = new SchedulingModel({
       customer: req.user._id,
-      officer: new ObjectId(staticOfficerId),
+      officer: officerId,
       startTime,
       endTime,
       status: "scheduled",
-    });
+    })
 
     const savedScheduling = await newSchedule.save();
 
@@ -391,9 +391,9 @@ export const createSchedule = asyncHandler(async (req, res) => {
     //   $push: { schedules: savedScheduling._id },
     // });
 
-    await User.findByIdAndUpdate(staticOfficerId, {
+    await User.findByIdAndUpdate(officerId, {
       $push: { schedules: savedScheduling._id },
-    });
+    })
 
     function formatDate(dateString) {
       const months = [
@@ -464,7 +464,7 @@ export const createSchedule = asyncHandler(async (req, res) => {
     // const officer = await User.findById(data.data.id);
 
     // static ///////////////////
-    const officer = await User.findById(staticOfficerId);
+    const officer = await User.findById(officerId)
 
     if (officer && officer.fcmToken) {
       // Prepare notification data

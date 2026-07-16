@@ -47,6 +47,7 @@ import officerFindRouter from "./routers/findOfficer.routes.js"
 import bankDetailsRouter from "./routers/bankDetails.routes.js"
 import consultationRoute from "./routers/consultation.routes.js"
 import emitRoute from "./routers/emitRoute.js"
+import phonepeRouter from "./routers/phonepetransaction.routes.js"
 
 import swaggerJsdoc from "swagger-jsdoc"
 import swaggerUi from "swagger-ui-express"
@@ -108,6 +109,8 @@ app.use("/api/v1/bank", bankDetailsRouter)
 app.use("/api/v1/consultation", consultationRoute)
 
 app.use("/api/v1/", emitRoute)
+
+app.use("/api/v1/phonepe", phonepeRouter)
 
 app.use("/api/v1/", async (req, res) => {
   return res.json({ data: "cron job run" })
