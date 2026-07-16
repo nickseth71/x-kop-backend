@@ -5,7 +5,7 @@ import {
   verifyTransaction,
   phonepeWebhook,
   listTransactions,
-} from "../controllers/phonepeTransaction.controller.js"
+} from "../controllers/phonepetransaction.controller.js"
 
 const router = Router()
 
